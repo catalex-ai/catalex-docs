@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ifm-color-primary: #14b8a6;
+  --ifm-color-primary-dark: #1099a0;
+  --ifm-color-primary-darker: #0d8b91;
+  --ifm-color-primary-darkest: #096c70;
+  --ifm-color-primary-light: #2dd4bf;
+  --ifm-color-primary-lighter: #5eead4;
+  --ifm-color-primary-lightest: #99f6e4;
+  --ifm-font-family-base: 'Inter', -apple-system, system-ui, sans-serif;
+  --ifm-heading-font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  --ifm-code-font-size: 95%;
+  --ifm-font-size-base: 16px;
+  --ifm-heading-font-weight: 700;
+  --docusaurus-highlighted-code-line-bg: rgba(20, 184, 166, 0.1);
+}
+
+.navbar {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.footer--dark {
+  background-color: #0f172a;
+}
+
+/* Admonition customizations */
+.alert--info {
+  --ifm-alert-background-color: rgba(59, 130, 246, 0.08);
+  --ifm-alert-border-color: #3b82f6;
+}
+
+.alert--warning {
+  --ifm-alert-background-color: rgba(139, 92, 246, 0.08);
+  --ifm-alert-border-color: #8b5cf6;
+}
+
+.alert--tip {
+  --ifm-alert-background-color: rgba(20, 184, 166, 0.08);
+  --ifm-alert-border-color: #14b8a6;
+}
+
+/* Sidebar styling */
+.menu__link--active:not(.menu__link--sublist) {
+  border-left: 3px solid var(--ifm-color-primary);
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) - 3px);
+}
+
+/* Table styling */
+table {
+  display: table;
+  width: 100%;
+}
+
+th {
+  background-color: #f8fafc;
+  font-weight: 600;
+}
