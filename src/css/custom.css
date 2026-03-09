@@ -1,35 +1,212 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap');
 
 :root {
-  --ifm-color-primary: #14b8a6;
-  --ifm-color-primary-dark: #1099a0;
-  --ifm-color-primary-darker: #0d8b91;
-  --ifm-color-primary-darkest: #096c70;
-  --ifm-color-primary-light: #2dd4bf;
-  --ifm-color-primary-lighter: #5eead4;
-  --ifm-color-primary-lightest: #99f6e4;
+  /* CatalEx Brand — matching catalex.co exactly */
+  --ifm-color-primary: #2D4A53;
+  --ifm-color-primary-dark: #273f47;
+  --ifm-color-primary-darker: #243b43;
+  --ifm-color-primary-darkest: #1d3037;
+  --ifm-color-primary-light: #33555f;
+  --ifm-color-primary-lighter: #365963;
+  --ifm-color-primary-lightest: #3f6873;
+
+  /* Fonts — matching catalex.co */
   --ifm-font-family-base: 'Inter', -apple-system, system-ui, sans-serif;
-  --ifm-heading-font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  --ifm-heading-font-family: 'Outfit', 'Inter', -apple-system, system-ui, sans-serif;
   --ifm-code-font-size: 95%;
   --ifm-font-size-base: 16px;
   --ifm-heading-font-weight: 700;
-  --docusaurus-highlighted-code-line-bg: rgba(20, 184, 166, 0.1);
+  --ifm-heading-letter-spacing: -0.02em;
+
+  /* Surfaces — catalex.co: --bg: #ffffff, --bg-secondary: #F8F8F8, --slate: #FAFAFA */
+  --ifm-background-color: #FAFAFA;
+  --ifm-background-surface-color: #FFFFFF;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
+  --ifm-footer-background-color: #FAFAFA;
+
+  /* Text — catalex.co: --text: #1A1A1A, --text-muted: #6B6B6B, --text-tertiary: #9CA3AF */
+  --ifm-font-color-base: #1A1A1A;
+  --ifm-font-color-secondary: #6B6B6B;
+
+  /* Links — catalex.co accent */
+  --ifm-link-color: #2D4A53;
+  --ifm-link-hover-color: #3A5E68;
+
+  /* Active sidebar — accent primary */
+  --ifm-menu-color-active: #2D4A53;
+  --ifm-menu-color-background-active: rgba(45, 74, 83, 0.08);
+
+  /* Code blocks — warm tint matching catalex.co */
+  --ifm-code-background: rgba(45, 74, 83, 0.06);
+  --docusaurus-highlighted-code-line-bg: rgba(45, 74, 83, 0.08);
+  --prism-background-color: #F8F8F8;
+
+  /* Borders — catalex.co: --border: #E8E8E8 */
+  --ifm-toc-border-color: #E8E8E8;
+  --ifm-hr-border-color: #E8E8E8;
+  --ifm-table-border-color: #E8E8E8;
 }
 
+[data-theme='dark'] {
+  --ifm-color-primary: #7AB0BD;
+  --ifm-color-primary-dark: #67a5b3;
+  --ifm-color-primary-darker: #5e9fae;
+  --ifm-color-primary-darkest: #468a99;
+  --ifm-color-primary-light: #8dbbc7;
+  --ifm-color-primary-lighter: #94bfca;
+  --ifm-color-primary-lightest: #b1d1d9;
+
+  --ifm-background-color: #18181b;
+  --ifm-background-surface-color: #27272a;
+  --ifm-navbar-background-color: rgba(24, 24, 27, 0.95);
+  --ifm-footer-background-color: #18181b;
+
+  --ifm-font-color-base: #f4f4f5;
+  --ifm-font-color-secondary: #a1a1aa;
+
+  --ifm-link-color: #7AB0BD;
+  --ifm-link-hover-color: #8dbbc7;
+
+  --ifm-menu-color-active: #7AB0BD;
+  --ifm-menu-color-background-active: rgba(122, 176, 189, 0.1);
+
+  --ifm-code-background: rgba(255, 255, 255, 0.06);
+  --docusaurus-highlighted-code-line-bg: rgba(122, 176, 189, 0.15);
+
+  --ifm-toc-border-color: #3f3f46;
+  --ifm-hr-border-color: #3f3f46;
+  --ifm-table-border-color: #3f3f46;
+}
+
+/* ─── Prism code block overrides ─── */
+/* Light: warm background matching catalex.co --bg-secondary */
+[data-theme='light'] .prism-code {
+  background-color: #F8F8F8 !important;
+  color: #1A1A1A !important;
+}
+
+[data-theme='light'] div[class*='codeBlockContainer'] {
+  --prism-background-color: #F8F8F8;
+  --prism-color: #1A1A1A;
+}
+
+/* Dark: zinc surface */
+[data-theme='dark'] .prism-code {
+  background-color: #1e1e21 !important;
+  color: #f4f4f5 !important;
+}
+
+[data-theme='dark'] div[class*='codeBlockContainer'] {
+  --prism-background-color: #1e1e21;
+  --prism-color: #f4f4f5;
+}
+
+/* ─── Navbar ─── */
 .navbar {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #E8E8E8;
+}
+
+[data-theme='dark'] .navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #3f3f46;
 }
 
 .navbar__title {
-  font-weight: 700;
+  font-family: 'Outfit', 'Inter', -apple-system, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
   letter-spacing: -0.02em;
 }
 
-.footer--dark {
-  background-color: #0f172a;
+/* Console link — icon only */
+.navbar__link--console {
+  font-size: 0 !important;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-/* Admonition customizations */
+.navbar__link--console::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.navbar__link--console:hover {
+  background-color: rgba(45, 74, 83, 0.08);
+}
+
+[data-theme='dark'] .navbar__link--console:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Hide the default external link icon on the console link */
+.navbar__link--console svg[class*='iconExternalLink'] {
+  display: none;
+}
+
+.navbar__link--console::after {
+  display: none !important;
+}
+
+/* ─── Footer ─── */
+.footer--dark {
+  background-color: #FAFAFA;
+  color: #1A1A1A;
+  border-top: 1px solid #E8E8E8;
+}
+
+.footer--dark .footer__title {
+  color: #1A1A1A;
+}
+
+.footer--dark .footer__link-item {
+  color: #6B6B6B;
+}
+
+.footer--dark .footer__link-item:hover {
+  color: #2D4A53;
+}
+
+.footer--dark .footer__copyright {
+  color: #9CA3AF;
+}
+
+[data-theme='dark'] .footer--dark {
+  background-color: #18181b;
+  color: #f4f4f5;
+  border-top: 1px solid #3f3f46;
+}
+
+[data-theme='dark'] .footer--dark .footer__title {
+  color: #f4f4f5;
+}
+
+[data-theme='dark'] .footer--dark .footer__link-item {
+  color: #a1a1aa;
+}
+
+[data-theme='dark'] .footer--dark .footer__link-item:hover {
+  color: #7AB0BD;
+}
+
+[data-theme='dark'] .footer--dark .footer__copyright {
+  color: #71717a;
+}
+
+/* ─── Admonitions ─── */
 .alert--info {
   --ifm-alert-background-color: rgba(59, 130, 246, 0.08);
   --ifm-alert-border-color: #3b82f6;
@@ -41,23 +218,40 @@
 }
 
 .alert--tip {
-  --ifm-alert-background-color: rgba(20, 184, 166, 0.08);
-  --ifm-alert-border-color: #14b8a6;
+  --ifm-alert-background-color: rgba(45, 74, 83, 0.08);
+  --ifm-alert-border-color: #2D4A53;
 }
 
-/* Sidebar styling */
+[data-theme='dark'] .alert--info {
+  --ifm-alert-background-color: rgba(59, 130, 246, 0.12);
+}
+
+[data-theme='dark'] .alert--warning {
+  --ifm-alert-background-color: rgba(139, 92, 246, 0.12);
+}
+
+[data-theme='dark'] .alert--tip {
+  --ifm-alert-background-color: rgba(122, 176, 189, 0.12);
+  --ifm-alert-border-color: #5B8A8A;
+}
+
+/* ─── Sidebar ─── */
 .menu__link--active:not(.menu__link--sublist) {
   border-left: 3px solid var(--ifm-color-primary);
   padding-left: calc(var(--ifm-menu-link-padding-horizontal) - 3px);
 }
 
-/* Table styling */
+/* ─── Tables ─── */
 table {
   display: table;
   width: 100%;
 }
 
 th {
-  background-color: #f8fafc;
+  background-color: #F8F8F8;
   font-weight: 600;
+}
+
+[data-theme='dark'] th {
+  background-color: #27272a;
 }

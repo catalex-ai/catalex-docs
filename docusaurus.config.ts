@@ -1,6 +1,26 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type {PrismTheme} from 'prism-react-renderer';
+
+// CatalEx-branded light prism theme (based on GitHub, warm background)
+const catalexLightTheme: PrismTheme = {
+  ...prismThemes.github,
+  plain: {
+    ...prismThemes.github.plain,
+    color: '#1A1A1A',
+    backgroundColor: '#F8F8F8',
+  },
+};
+
+// CatalEx-branded dark prism theme (based on Dracula, zinc background)
+const catalexDarkTheme: PrismTheme = {
+  ...prismThemes.dracula,
+  plain: {
+    ...prismThemes.dracula.plain,
+    backgroundColor: '#1e1e21',
+  },
+};
 
 const config: Config = {
   title: 'CatalEx Docs',
@@ -55,8 +75,10 @@ const config: Config = {
         },
         {
           href: 'https://console.catalex.co',
-          label: 'Go to CatalEx',
+          label: 'CatalEx Console',
           position: 'right',
+          className: 'navbar__link--console',
+          'aria-label': 'Go to CatalEx Console',
         },
       ],
     },
@@ -81,14 +103,14 @@ const config: Config = {
       copyright: `Copyright ${new Date().getFullYear()} CatalEx. All rights reserved.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: catalexLightTheme,
+      darkTheme: catalexDarkTheme,
       additionalLanguages: ['bash', 'json', 'python'],
     },
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true,
-      respectPrefersColorScheme: false,
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
     },
   } satisfies Preset.ThemeConfig,
 };
