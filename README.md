@@ -1,41 +1,45 @@
-# Website
+# CatalEx Docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Documentation site for [CatalEx](https://catalex.co) — AI-powered workplace intelligence. Built with [Docusaurus 3](https://docusaurus.io/).
 
-## Installation
+**Live site:** [docs.catalex.co](https://docs.catalex.co)
 
-```bash
-yarn
-```
-
-## Local Development
+## Development
 
 ```bash
-yarn start
+npm install
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Starts a local dev server at `http://localhost:3000` with hot reload.
 
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Generates static files into `build/`. Preview locally with `npm run serve`.
 
 ## Deployment
 
-Using SSH:
+The `deploy` branch contains the production build output and is served via GitHub Pages.
 
 ```bash
-USE_SSH=true yarn deploy
+npm run build
+# push build/ contents to the deploy branch
 ```
 
-Not using SSH:
+## Theming
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+Colors and fonts match the [catalex.co](https://catalex.co) brand:
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- **Primary:** `#2D4A53` (dark teal from brand palette)
+- **Heading font:** Outfit
+- **Body font:** Inter
+- **Light/dark mode** with system preference detection
+
+Theme customization lives in:
+
+- `docusaurus.config.ts` — site config, navbar, footer, color mode, prism themes
+- `src/css/custom.css` — CSS variables, component overrides, dark mode styles
