@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'privacy-policy',
+        'terms-of-service',
       ],
     },
   ],
