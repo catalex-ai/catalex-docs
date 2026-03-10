@@ -58,6 +58,14 @@ const sidebars: SidebarsConfig = {
         'administration/company-settings',
       ],
     },
+    {
+      type: 'category',
+      label: 'Legal',
+      collapsed: true,
+      items: [
+        'privacy-policy',
+      ],
+    },
   ],
 };
 

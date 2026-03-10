@@ -99,6 +99,12 @@ const config: Config = {
             {label: 'CatalEx Console', href: 'https://console.catalex.co'},
           ],
         },
+        {
+          title: 'Legal',
+          items: [
+            {label: 'Privacy Policy', to: '/privacy-policy'},
+          ],
+        },
       ],
       copyright: `Copyright ${new Date().getFullYear()} CatalEx. All rights reserved.`,
     },
