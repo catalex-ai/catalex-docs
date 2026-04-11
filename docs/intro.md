@@ -20,9 +20,9 @@ CatalEx is an AI-powered workplace intelligence platform that connects your team
 
 ## Quick Navigation
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '1.5rem'}}>
+<div className="home-cards">
 
-<div style={{padding: '1.5rem', border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc'}}>
+<div className="home-card">
 
 ### Getting Started
 New to CatalEx? Start here.
@@ -33,7 +33,7 @@ New to CatalEx? Start here.
 
 </div>
 
-<div style={{padding: '1.5rem', border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc'}}>
+<div className="home-card">
 
 ### Features
 Learn how to use each feature.
@@ -44,7 +44,7 @@ Learn how to use each feature.
 
 </div>
 
-<div style={{padding: '1.5rem', border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc'}}>
+<div className="home-card">
 
 ### Agents & Integrations
 Extend CatalEx with custom tools.
@@ -54,7 +54,7 @@ Extend CatalEx with custom tools.
 
 </div>
 
-<div style={{padding: '1.5rem', border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc'}}>
+<div className="home-card">
 
 ### Administration
 Manage your organization.
