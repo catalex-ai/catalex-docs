@@ -3,22 +3,23 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {PrismTheme} from 'prism-react-renderer';
 
-// CatalEx-branded light prism theme (based on GitHub, warm background)
+// CatalEx-branded light prism theme (GitHub base on warm terracotta tint)
 const catalexLightTheme: PrismTheme = {
   ...prismThemes.github,
   plain: {
     ...prismThemes.github.plain,
-    color: '#1A1A1A',
-    backgroundColor: '#F8F8F8',
+    color: '#0E0D0C',
+    backgroundColor: '#FAF1EA',
   },
 };
 
-// CatalEx-branded dark prism theme (based on Dracula, zinc background)
+// CatalEx-branded dark prism theme (Dracula base on warm charcoal)
 const catalexDarkTheme: PrismTheme = {
   ...prismThemes.dracula,
   plain: {
     ...prismThemes.dracula.plain,
-    backgroundColor: '#1e1e21',
+    color: '#F5EFE7',
+    backgroundColor: '#1E1915',
   },
 };
 
@@ -29,6 +30,11 @@ const config: Config = {
 
   url: 'https://docs.catalex.co',
   baseUrl: '/',
+
+  organizationName: 'catalex-ai',
+  projectName: 'catalex-docs',
+  deploymentBranch: 'deploy',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
