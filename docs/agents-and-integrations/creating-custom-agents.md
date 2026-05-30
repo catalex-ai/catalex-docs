@@ -5,7 +5,11 @@ title: Creating Custom Agents (Developer Guide)
 
 # Creating Custom Agents (Developer Guide)
 
-This guide covers the **developer perspective** on designing effective CatalEx agents. An agent is a persona backed by tools — you define what it knows, how it behaves, and what it can do. This page focuses on architecture decisions, instruction writing, and design patterns. For the step-by-step UI walkthrough of registering agents, see [Registering with CatalEx](./registering-with-catalex).
+:::tip
+To build an agent through the product, use **[Studio](../features/studio.md)**. This guide is for going deeper — the design thinking behind effective agent instructions and tool choices.
+:::
+
+This guide covers the **design perspective** on building effective CatalEx agents. An agent is a worker backed by tools — you define what it knows, how it behaves, and what it can do. This page focuses on instruction writing and design patterns that make agents reliable.
 
 ## Agent Architecture
 
@@ -158,7 +162,7 @@ Auto-execute requires that **ALL** MCPs linked to the agent have `auto_approve=t
 This means:
 
 - If your agent links 3 MCPs and 2 have `auto_approve=true` but 1 does not, the agent will ask for confirmation on **every** tool call.
-- To enable auto-execute, go to **Agent Market > Custom MCPs**, find each linked MCP, and enable auto-approve.
+- To enable auto-execute, go to the **Tools** page, open the integration, and set the relevant actions to **Auto** (see [guardrails](/features/tools#guardrails-and-approvals)).
 - Only enable auto-approve on MCPs whose tools are all safe to run without confirmation.
 
 ## Testing Your Agent
@@ -167,7 +171,7 @@ Follow this workflow to test an agent before making it available to your team:
 
 ### 1. Create the Agent in Draft Status
 
-In **Agent Market > Agents > Create Agent**, fill in the details and save as **Draft**. Draft agents are only visible to admins.
+In **Studio**, click **New agent** and follow the build flow. See [Studio](/features/studio) for the full walkthrough.
 
 ### 2. Test in Chat
 

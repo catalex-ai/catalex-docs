@@ -1,184 +1,72 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 title: Tasks
 ---
 
 # Tasks
 
-Tasks is CatalEx's AI-powered action item extraction and workflow management system. It analyzes your synced documents to identify actionable items, then helps you track, execute, and approve them through a structured workflow.
-
-## How It Works
-
-CatalEx scans your synced documents and Slack threads for actionable language -- things like "we need to update the API docs" or "John should review the security policy by Friday." It extracts these into structured tasks with:
-
-- **Title** -- A concise summary of the action item
-- **Description** -- Detailed context pulled from the source document
-- **Priority** -- High, medium, or low
-- **Assignee** -- The person responsible, if identifiable from the source text
-
-## Task Status Flow
-
-Every task moves through a defined lifecycle:
-
-```
-pending --> in_progress --> awaiting_approval --> done
-                                              --> rejected
-                        --> failed
-```
-
-| Status | Meaning |
-|--------|---------|
-| **pending** | Task has been extracted or created but not yet acted on |
-| **in_progress** | CatalEx is generating or executing a workflow for this task |
-| **awaiting_approval** | Execution results are ready for human review |
-| **done** | Task has been approved and completed |
-| **rejected** | Execution results were rejected by a reviewer |
-| **failed** | Execution encountered an error |
-
-## Priority Levels
-
-Tasks are assigned one of three priority levels, each color-coded for quick identification:
-
-| Priority | Indicator | When Assigned |
-|----------|-----------|---------------|
-| **High** | Red | Urgent items, deadlines mentioned, blockers |
-| **Medium** | Yellow | Standard action items with moderate urgency |
-| **Low** | Green | Nice-to-have items, long-term suggestions |
-
-## Execution and Approval Workflow
-
-The full lifecycle of a task from extraction to completion:
-
-### Step 1: Task Extraction
-
-CatalEx identifies an action item in a synced document and creates a task with status **pending**.
-
-### Step 2: Execution Plan Generation
-
-CatalEx generates an execution plan (workflow) that outlines the steps needed to complete the task. The task moves to **in_progress**.
-
-### Step 3: Execution and Submission
-
-The workflow executes and produces results. The task moves to **awaiting_approval**, and the results are presented for human review.
-
-### Step 4: Human Review
-
-You review the execution results and choose one of two actions:
-
-- **Approve** -- The task moves to **done**. The results are finalized.
-- **Reject** -- The task moves to **rejected**. You can optionally rerun the task with updated parameters.
-
-:::info
-The approval step ensures that no AI-generated output is finalized without human oversight. Every execution result requires explicit approval before it is considered complete.
+:::note
+Tasks is in **beta**. Some parts of the experience are still being built.
 :::
 
-### Handling Failures
+Tasks is your "what needs you today" inbox. Instead of you creating to-dos by hand, your AI agents watch your connected tools — Gmail, Slack, your calendar, your CRM — detect things that need attention, and surface them as task cards. Your job is mostly to **review, approve, refine, or reject** what the agents have prepared.
 
-If the execution encounters an error, the task moves to **failed**. You can inspect the error details and choose to rerun the task.
+## How tasks appear
 
-## Searching and Filtering Tasks
+Most tasks are **created automatically** by an agent in response to something it noticed. Each task explains itself with a **"Why this task"** note citing the source and the signal that triggered it — for example, an incoming email, a calendar event, or a deal changing stage.
 
-### Search
+You can also create a task manually: click **+** (*Create New Task*), give it a title and optional context, and **Create Task**.
 
-Use the search bar to find tasks by keyword. The search matches against task titles and descriptions.
+## The Tasks page
 
-### Filter by Status
+Tasks are grouped into three tabs, each with a live count:
 
-Filter the task list to show only tasks in a specific state:
+| Tab | What's in it |
+|---|---|
+| **Needs You** | Tasks waiting on you — to approve or to answer a question. |
+| **Briefing** | Tasks an agent is still preparing. |
+| **Handled** | Tasks already done or in motion. |
 
-- **Pending** -- Tasks awaiting action
-- **Awaiting Approval** -- Tasks with results ready for review
-- **Failed** -- Tasks that encountered errors
-- **Done** -- Completed tasks
-- **Deleted** -- Removed tasks
+A live indicator shows how many agents are currently active. Filter the grid by **date range** (Today / Last Week / Last Month), by **priority** (Urgent / Medium / Low), or with the **search** box.
 
-### Filter by Priority
+Each card shows the task's title, a short description, its status, when it was created, where it came from (e.g. *"via Gmail"*), its priority, and which agent — or team of agents — is working it.
 
-Narrow down tasks by priority level: **High**, **Medium**, or **Low**.
+## Working a task
 
-### Filter by Date Range
+Click a card to open it. The detail panel has these tabs:
 
-View tasks from a specific time period:
+- **Overview** — the *"Why this task"* reasoning, the description, and key details (status, priority, source, owner, deadline, team size).
+- **Agents** — who's working the task and their step-by-step progress. For multi-agent tasks, a lead agent coordinates contributors.
+- **Action** — where you actually do something (below).
+- **Chat** — *coming soon.*
 
-- **Today** -- Tasks created or updated today
-- **Last Week** -- Tasks from the past 7 days
-- **Last Month** -- Tasks from the past 30 days
+### The Action tab
 
-:::tip
-Combine filters to create focused views. For example, filter by **Awaiting Approval** + **High** priority to see the most urgent items that need your attention.
-:::
+Depending on where the task is, the Action tab does one of three things:
 
-## Metrics Dashboard
+- **Answers a question.** When an agent needs a decision, it presents options to choose from, plus a box to type your own response.
+- **Shows a draft for review.** When an agent has produced something (an email reply, a deck, a digest), you can:
+  - **Approve & Execute** — accept it and let the agent carry it out.
+  - **Edit Before Sending** — send feedback so the agent revises its plan.
+  - **Reject** — decline it.
+- **Shows the completed result** once a task is done.
 
-The Tasks page includes a metrics section that shows:
+You can also **regenerate** a task (re-run the agent's workflow) from the panel header.
 
-- **Completion rate** -- The ratio of completed tasks to total tasks, displayed as a percentage
-- **Progress bar** -- A visual indicator with color coding:
-  - Green for high completion rates
-  - Yellow for moderate rates
-  - Red for low completion rates
+## Getting started
 
-Use these metrics to track your team's progress on extracted action items over time.
-
-## Creating Tasks Manually
-
-In addition to AI-extracted tasks, you can create tasks manually:
-
-1. Click **New Task** (or the equivalent create button).
-2. Enter a **title** for the task.
-3. Add a **description** with relevant context.
-4. Set the **priority** (high, medium, or low).
-5. Optionally assign the task to a specific person.
-6. Save the task.
-
-Manually created tasks enter the same workflow as extracted tasks and follow the same status lifecycle.
-
-## Rerunning Tasks
-
-If a task's execution results are unsatisfactory or if the task failed, you can rerun it:
-
-1. Open the task detail view.
-2. Click **Rerun**.
-3. CatalEx regenerates the execution plan and produces updated results.
-4. The task returns to **awaiting_approval** for review.
-
-:::tip
-Rerunning is useful when the underlying source documents have been updated since the original extraction, or when you want to try a different approach to the task.
-:::
-
-## Task History
-
-View the extraction history to see which documents tasks were extracted from. The history shows:
-
-- The source document name and link
-- When the extraction ran
-- How many tasks were extracted from each document
-- The status of each extracted task
-
-This helps you trace any task back to its origin and understand the context in which it was identified.
+If you have no agents and no tasks yet, Tasks shows a short onboarding that invites you to connect a source — *Connect Gmail*, *Connect Slack* — so agents have something to watch. Each source you connect means one less thing to check manually.
 
 ## FAQ
 
-**Can I edit a task's description?**
+**Where do tasks come from?**
+Mostly from your agents watching connected tools. Connect more sources (see [Knowledge](./knowledge.md) and [Tools](./tools.md)) to give agents more to act on. You can also create tasks manually.
 
-Yes. Open the task detail view and modify the title, description, priority, or assignee as needed.
+**What does "Approve & Execute" do?**
+It accepts the agent's draft and lets the agent carry out the action — for example, posting a reply. If something can't be done automatically, CatalEx tells you so you can do it manually.
 
-**What happens when I reject an execution?**
+**Can I redirect an agent that's heading the wrong way?**
+Yes. Use **Edit Before Sending** to send instructions, and the agent revises its plan with your feedback.
 
-The task moves to **rejected** status. You can then rerun the task to generate a new execution plan and updated results.
-
-**Can tasks be assigned to specific people?**
-
-Yes. You can set or change the assignee when creating a task manually or by editing an existing task. AI-extracted tasks are assigned automatically when the source text identifies a responsible person.
-
-**Are tasks extracted automatically every time I sync?**
-
-Task extraction runs as part of the document analysis pipeline. When new or updated documents are synced, CatalEx scans them for action items.
-
-**Can I delete a task?**
-
-Yes. Deleted tasks move to the **deleted** filter category and are hidden from the default view.
-
-**How accurate is the priority assignment?**
-
-CatalEx infers priority from language cues in the source document (urgency words, deadlines, escalation language). You can always adjust the priority manually if the AI's assessment does not match your judgment.
+**How is this different from a to-do list?**
+A to-do list is a static list you maintain. Tasks is an active queue driven by agents — items arrive because something happened, already partly done, waiting for your call.

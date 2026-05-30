@@ -9,7 +9,12 @@ Welcome to CatalEx! This guide walks you through creating your account, verifyin
 
 ## Overview
 
-CatalEx supports two ways to create an account: traditional email and password registration, or Google Single Sign-On (SSO). After signing up, you will verify your email address and either create a new company workspace or join an existing one.
+How you create your account determines whether you start a new company or join one that already exists:
+
+- **Register a new company** — Use the **Register** tab on the login page. You'll enter a company name, your details, and a password, then verify your email. You become the **OWNER** of a brand-new workspace.
+- **Join an existing company** — Open the **invite link** a teammate sends you and set a password. You join their company with the role they assigned, and you're signed in right away (no separate email verification step).
+
+You can sign in with email and password, **Google**, or **SSO**.
 
 ## How It Works
 
@@ -44,38 +49,23 @@ If you sign up using Google SSO, your email is verified automatically through Go
 
 Once your email is verified, log in using the method you chose during sign-up (email/password or Google SSO). CatalEx uses JWT-based authentication to keep your session secure.
 
-### Step 4: Create a Company or Join an Existing One
+### Step 3a: New company owners — verify your domain
 
-After your first login, you have two paths:
+If you registered a new company, an admin (you) should verify ownership of your email domain. CatalEx shows a **TXT record** to add to your domain's DNS; once it propagates, click **Verify Domain**. You can also **Skip for now** and do it later. See [Setting Up Your Company](./setting-up-your-company.md).
 
-#### Path A: Create a New Company
+### Step 4: Land in Studio
 
-If you are the first person from your organization on CatalEx, select **Create a new company**. You will become the **OWNER** of the company workspace. See [Setting Up Your Company](./setting-up-your-company.md) for next steps.
+After signing in, you arrive in **[Studio](../features/studio.md)** — the home of CatalEx, where you build and run agents. From here you can:
 
-#### Path B: Join an Existing Company
+- **Build your first agent** by describing it in plain English or starting from a template.
+- **Connect data sources** on the [Knowledge](../features/knowledge.md) page so CatalEx can search your documents and conversations.
+- **Connect tools** on the [Tools](../features/tools.md) page so your agents can take actions.
 
-There are two ways to join a company that already exists on CatalEx:
-
-- **Invite link** -- Someone with an ADMIN or OWNER role sends you a magic link via email. Click the link to join the company with the role they assigned. See [Inviting Your Team](./inviting-your-team.md) for details.
-- **Auto-join** -- If the company has configured a verified domain and enabled auto-join, any user whose email matches that domain is automatically added to the company upon sign-up. No invite needed.
-
-:::tip
-Not sure if your company is already on CatalEx? Check with your IT team or manager. If auto-join is enabled for your domain, you will be added automatically when you create your account.
-:::
-
-### Step 5: Explore the Dashboard
-
-On your first login to a company workspace, you will see:
-
-- An **empty dashboard** with a welcome message.
-- **Guided prompts** encouraging you to connect your first data source (Google Drive or Slack).
-- A quick-start checklist to help you configure your workspace.
-
-The dashboard will populate with insights and knowledge once data sources are connected and indexed.
+> Joining an existing company? If the company enabled **auto-join** for a verified domain, anyone whose email matches that domain is added automatically at sign-up — no invite needed.
 
 ## Configuration
 
-No additional configuration is required at the sign-up stage. Account-level settings such as display name and password changes are available under **Profile Settings** after login.
+No additional configuration is required at the sign-up stage. Personal settings such as display name and theme are available in **[Preferences](../administration/preferences.md)** (via the profile menu) after login.
 
 ## FAQ
 

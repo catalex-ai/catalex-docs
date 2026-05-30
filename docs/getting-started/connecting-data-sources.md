@@ -5,158 +5,73 @@ title: Connecting Data Sources
 
 # Connecting Data Sources
 
-CatalEx draws its intelligence from the data your team already produces. This guide covers how to connect Google Drive and Slack so CatalEx can index your organization's knowledge.
+CatalEx draws on the data your team already produces. Connect your data sources so CatalEx can search your documents and conversations and act on your behalf. There are two places to connect things:
 
-## Overview
-
-CatalEx supports two data source types:
-
-| Data Source | What Gets Indexed | Connection Method |
+| Where | What you connect | Used for |
 |---|---|---|
-| **Google Drive** | Documents, spreadsheets, presentations, and other files | OAuth (individual) or Domain-Wide Delegation (company-wide) |
-| **Slack** | Messages and threads from connected channels | OAuth |
+| **Knowledge** page | Google Docs, Slack, Confluence | Making your company's documents and messages searchable. |
+| **Tools** page | 100+ integrations (Slack, GitHub, Jira, Gmail, etc.) | Letting agents take actions in outside services. |
 
-You can connect both data sources simultaneously. The more data CatalEx has access to, the richer and more accurate its insights become.
+This guide covers the **Knowledge** sources. For action integrations, see [Tools](../features/tools.md). For the full detail on each connector, see [Knowledge](../features/knowledge.md).
 
-## How It Works
-
-### Google Drive
-
-CatalEx offers two ways to connect Google Drive, depending on the size and needs of your team.
-
-#### Option A: OAuth (Individual Connection)
-
-With OAuth, each user connects their own Google account. CatalEx can only access documents that the connected user has access to.
-
-1. Navigate to **Settings > Data Sources > Google Drive**.
-2. Click **Connect with Google**.
-3. You are redirected to Google's authorization screen. Sign in and grant CatalEx permission to read your Drive files.
-4. Once authorized, you are redirected back to CatalEx. The connection status indicator turns **green**.
-
-:::tip
-OAuth is the fastest way to get started. Each team member connects their own account, and CatalEx indexes the documents they can see.
+:::info
+Connecting and managing data sources requires the **ADMIN** or **OWNER** role.
 :::
 
-#### Option B: Domain-Wide Delegation (Company-Wide Connection)
+## Knowledge sources
 
-With Domain-Wide Delegation (DWD), a Google Workspace administrator configures a service account that gives CatalEx access to documents across the entire organization. This is a one-time setup performed by an admin.
+Open the **Knowledge** page from the sidebar. You'll see a card for each source — **Google Docs**, **Slack**, and **Confluence** — with a toggle to connect and a **⋮** menu for sync options. After connecting, CatalEx offers to enable **periodic sync**, which runs an initial full sync and then keeps the source up to date automatically.
 
-**Prerequisites:**
+### Google Docs
 
-- A Google Workspace account with admin privileges
-- Access to the Google Cloud Console
-- Access to the Google Admin Console
+CatalEx offers two ways to connect Google, depending on your team's size.
 
-**Setup steps:**
+#### Option A: OAuth (individual)
 
-1. **Create a service account** in the Google Cloud Console:
-   - Go to **IAM & Admin > Service Accounts**.
-   - Click **Create Service Account**, give it a name (e.g., `catalex-integration`), and click **Create**.
-   - On the key creation step, select **JSON** and download the key file.
+Each user connects their own Google account; CatalEx indexes the documents that account can see. Toggle **Google Docs** on, choose **Proceed**, and authorize CatalEx on Google's screen. This is the fastest way to start.
 
-2. **Enable required API scopes** in the Google Admin Console:
-   - Go to **Security > API Controls > Domain-wide Delegation**.
-   - Click **Add new** and enter the service account's Client ID.
-   - Add the following OAuth scopes:
-     - `https://www.googleapis.com/auth/drive.readonly`
+#### Option B: Domain-Wide Delegation (company-wide)
 
-3. **Upload the service account key to CatalEx:**
-   - Navigate to **Settings > Data Sources > Google Drive**.
-   - Select **Domain-Wide Delegation**.
-   - Upload the JSON key file you downloaded in step 1.
-   - Click **Connect**.
-
-4. CatalEx validates the configuration and begins indexing organization-wide documents.
+A Google Workspace admin configures a service account so CatalEx can index documents across the whole organization in one setup. When toggled on for a Workspace that requires it, CatalEx opens a **Setup Credentials** dialog with step-by-step instructions for creating the service account, enabling the Drive and Docs APIs, granting domain-wide delegation, and pasting the JSON key.
 
 :::warning
-The service account JSON key contains sensitive credentials. Do not share it or commit it to version control. Only OWNER and ADMIN roles can configure Domain-Wide Delegation in CatalEx.
+The service account JSON key contains sensitive credentials. Don't share it or commit it to version control. Only OWNER and ADMIN roles can configure Domain-Wide Delegation.
 :::
 
-#### Which Option Should I Choose?
+#### Which should I choose?
 
-```
-Is your team larger than 10 people?
-├── Yes  → Use Domain-Wide Delegation
-│         (Company-wide knowledge, single setup, complete coverage)
-└── No   → Start with OAuth
-           (Quick setup, each user connects individually)
-```
-
-| Factor | OAuth (Individual) | Domain-Wide Delegation |
+| Factor | OAuth (individual) | Domain-Wide Delegation |
 |---|---|---|
-| **Setup effort** | Low -- each user clicks "Connect" | Medium -- requires Google Workspace admin |
-| **Coverage** | Only the connected user's files | All files across the organization |
-| **Best for** | Small teams, individual users, quick trials | Large teams, company-wide knowledge bases |
-| **Who sets it up** | Each team member | A Google Workspace admin (once) |
-| **Ongoing maintenance** | Each user manages their own connection | Centrally managed by admin |
+| **Setup effort** | Low — each user clicks connect | Medium — requires a Workspace admin |
+| **Coverage** | The connected user's files | All files across the organization |
+| **Best for** | Small teams, quick trials | Larger teams, company-wide knowledge |
 
 ### Slack
 
-Slack connects via a standard OAuth flow. Once connected, CatalEx indexes messages and threads from your Slack workspace.
+Toggle **Slack** on and authorize CatalEx in the popup. Then use the **⋮** menu → **Manage Channels** to pick exactly which channels feed the knowledge base — public channels, private channels, and direct messages each have an include/exclude toggle. With auto-sync on, new messages index in real time.
 
-1. Navigate to **Settings > Data Sources > Slack**.
-2. Click **Connect Slack**.
-3. You are redirected to Slack's authorization screen. Select the workspace you want to connect and click **Allow**.
-4. Once authorized, you are redirected back to CatalEx. Connected channels are **auto-discovered** and listed in the Data Sources panel.
-5. The connection status indicator turns **green**.
+### Confluence
 
-:::info
-CatalEx indexes messages and threads from connected channels. Direct messages and private channels are not indexed unless the CatalEx Slack app is explicitly invited to those channels.
-:::
+Toggle **Confluence** on and authorize through the popup (company accounts can instead enter Atlassian OAuth credentials and test them first). Confluence indexes **all accessible spaces and pages** automatically.
 
-### Verifying Your Connection
+## Checking and managing syncs
 
-After connecting a data source, check the status indicator on the **Data Sources** page:
-
-| Status | Indicator | Meaning |
-|---|---|---|
-| **Connected** | Green | Data source is linked and syncing normally |
-| **Syncing** | Yellow | Initial indexing or a sync cycle is in progress |
-| **Disconnected** | Gray | No active connection |
-| **Error** | Red | Something went wrong -- check the error details |
-
-### Disconnecting a Data Source
-
-If you need to remove a data source:
-
-1. Go to **Settings > Data Sources**.
-2. Find the data source you want to disconnect.
-3. Click **Disconnect**.
-4. Confirm the action in the dialog.
+Each source card shows a status dot and how much is indexed. While a sync runs, a progress view shows items processed and any failures. You can trigger **Sync now** at any time, and review past runs in the source's sync history.
 
 :::warning
-When you disconnect a data source, CatalEx runs a background cleanup job that removes all indexed data from that source. This process may take a few minutes depending on the volume of data. The removal is permanent -- reconnecting will require a full re-index.
+Disconnecting a source **permanently removes** its indexed data from CatalEx. Reconnecting requires a full re-index.
 :::
-
-## Configuration
-
-| Setting | Location | Who Can Change |
-|---|---|---|
-| Connect Google Drive (OAuth) | Settings > Data Sources > Google Drive | Any authenticated user |
-| Connect Google Drive (DWD) | Settings > Data Sources > Google Drive | OWNER, ADMIN |
-| Connect Slack | Settings > Data Sources > Slack | OWNER, ADMIN |
-| Disconnect any source | Settings > Data Sources | OWNER, ADMIN |
-| View sync status | Settings > Data Sources | All roles |
 
 ## FAQ
 
-**Can I connect both Google Drive and Slack at the same time?**
-Yes. CatalEx supports multiple data sources simultaneously. Connecting both gives CatalEx the richest context for generating insights across your documents and conversations.
+**Where did the "Data Sources" page go?**
+Knowledge sources are now managed on the **Knowledge** page; action integrations live on the **Tools** page.
 
-**What happens to indexed data when I disconnect a data source?**
-All indexed data from that source is permanently removed. CatalEx runs a background cleanup job after disconnection. If you reconnect later, the data will need to be re-indexed from scratch.
+**Can I connect more than one source?**
+Yes — connect all three knowledge sources, plus any Tools integrations. The more CatalEx can see, the better its answers and the more your agents can do.
 
 **How often does data sync?**
-CatalEx supports configurable auto-sync. After the initial indexing, subsequent syncs pick up new and modified content at the interval you configure. Check **Settings > Data Sources** for sync frequency options.
-
-**Can individual users connect Google Drive via OAuth if the company already uses Domain-Wide Delegation?**
-Typically, DWD covers the entire organization, so individual OAuth connections are unnecessary. If both are configured, CatalEx deduplicates content to avoid indexing the same documents twice.
-
-**What Slack channels are indexed?**
-Public channels the CatalEx app has access to are auto-discovered. To include a private channel, invite the CatalEx bot to that channel within Slack.
-
-**I connected a data source but no data is appearing. What should I do?**
-Initial indexing can take time depending on the volume of data. Check the status indicator -- if it shows **Syncing** (yellow), the process is still running. If it shows **Error** (red), click on the error message for details and troubleshooting steps.
+With auto-sync enabled, roughly every 15 minutes; Slack also indexes new messages in real time. You can always run **Sync now** manually.
 
 **Is my data secure?**
-CatalEx is a multi-tenant platform with strict data isolation between companies. Data from your connected sources is only accessible to members of your company. All connections use OAuth or service account credentials with the minimum required permissions.
+CatalEx is multi-tenant with strict isolation between companies. Your connected data is only accessible to members of your company.

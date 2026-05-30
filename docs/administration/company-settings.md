@@ -31,8 +31,12 @@ Your company name is the display name shown throughout CatalEx — in the sideba
 3. Click **Save**.
 
 :::tip
-Choose a name your team will recognize. This is a display name only and does not affect your account URL or billing.
+Choose a name your team will recognize. The **Slug (URL identifier)** shown beside it is set automatically and cannot be changed.
 :::
+
+## Usage & Quotas
+
+The top of Company Settings shows your plan limits as meters for **Runs**, **Users**, and **Agents** — each as *used / limit*. A meter turns amber as you approach a limit and red once it's reached. If you need higher limits, use the contact link to request an increase. A banner also appears across the app when a quota is exceeded.
 
 ## Domain Management
 
