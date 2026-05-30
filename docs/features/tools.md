@@ -60,10 +60,9 @@ Start new integrations on **Manual** for anything that writes or sends data (ema
 
 ## Custom tools and MCPs
 
-Beyond the official catalog, CatalEx supports two ways to extend what agents can do:
+Beyond the official catalog, you can extend what agents can do with **script tools** — small Python tools you build directly in an agent's Tools tab for bespoke logic. See [Studio → Tools](./studio.md#tools).
 
-- **Script tools** — small Python tools you build directly in an agent's Tools tab for bespoke logic. See [Studio → Tools](./studio.md#tools).
-- **Custom MCPs** — connect any MCP-compatible server your team builds and hosts. This is an admin capability; see [Custom MCPs](../agents-and-integrations/custom-mcps.md) and the [build-your-own guides](../agents-and-integrations/overview.md).
+For an overview of how integrations work and the full list of supported services, see [Integrations](../agents-and-integrations/overview.md).
 
 ## FAQ
 

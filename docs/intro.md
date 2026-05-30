@@ -47,11 +47,11 @@ Learn how to use each part of the platform.
 
 <div className="home-card">
 
-### Building Custom Tools & Agents
-Extend CatalEx with your own.
-- [Overview](/agents-and-integrations/overview)
-- [Build an MCP server](/agents-and-integrations/building-an-mcp-server)
-- [Custom agents](/agents-and-integrations/custom-agents)
+### Integrations
+Connect the tools your team uses.
+- [Integrations overview](/agents-and-integrations/overview)
+- [Official integrations](/agents-and-integrations/official-integrations)
+- [Connecting tools](/features/tools)
 
 </div>
 
