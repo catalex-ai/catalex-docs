@@ -3,23 +3,19 @@ sidebar_position: 1
 title: Overview
 ---
 
-# Building Custom Tools & Agents
+# Integrations Overview
 
-CatalEx ships with two surfaces for extending the platform:
+Integrations are the connections that let CatalEx work with the services your team already uses — Slack, GitHub, Gmail, Jira, Salesforce, and many more. Once an integration is connected, your [Studio](../features/studio.md) agents and [Freeflow](../features/freeflow.md) can read from and act on it.
 
-- The **[Tools](../features/tools.md)** page — a catalog of 100+ official integrations you connect with a click, plus the ability to add custom MCP servers your team builds.
-- **[Studio](../features/studio.md)** — where you build agents in plain English and give them tools, schedules, and goals.
-
-This section is the deeper guide for teams that want to go beyond the catalog: connect **custom MCP servers** for internal tools, and design **agents** with precise instructions and tool access.
+All integrations are connected and managed on the **[Tools](../features/tools.md)** page.
 
 ## The building blocks
 
-CatalEx is built on the **Model Context Protocol (MCP)**, an open standard for letting AI use external tools through a structured API.
+- An **integration** is a connection to an external service. It exposes a set of **actions** — for example, the Gmail integration includes *Send Email*, *Create Draft*, and *List Labels*.
+- A few **built-in tools** are always available with no setup: *Web Search*, *Web Fetcher*, *Script Executor*, and *Knowledge Base*.
+- An **agent** (built in [Studio](../features/studio.md)) decides how and when to use the tools it's been given.
 
-- An **integration / MCP** is a connection to an external service. It defines *what actions* are available (e.g., "create a Jira ticket", "send a Slack message"). Official integrations are MCP servers CatalEx hosts for you; **custom MCPs** are servers your team builds and hosts.
-- An **agent** is an AI worker with instructions that define *how* it behaves and *which* tools it can use. You build agents in [Studio](../features/studio.md).
-
-An agent can use **multiple tools**, and a single tool can be used by **many agents** — your Jira connection doesn't need to be duplicated per agent.
+An agent can use **multiple tools**, and a single connected integration can be used by **many agents** — you don't duplicate a connection per agent.
 
 ## How they fit together
 
@@ -30,40 +26,23 @@ You
 Studio agent (instructions + goals)
   |
   v
-Tools (official integration or custom MCP)
+Tools (connected integration)
   |
   v
 External service (e.g., Jira, GitHub, Slack)
 ```
 
-1. You give an agent a task (in chat, on a schedule, or via Tasks).
+1. You give an agent a task — in chat, on a schedule, or via Tasks.
 2. The agent uses its instructions to decide what to do.
-3. It calls tools — official integrations or custom MCPs — to fetch data or take actions.
+3. It calls the actions of its connected tools to fetch data or take action.
 4. Sensitive actions pause for your approval, governed by [guardrails](../features/tools.md#guardrails-and-approvals).
 
-## What's in this section
+## Connecting integrations
 
-| Guide | What it covers |
-|---|---|
-| [Official Integrations](./official-integrations.md) | The catalog of ready-made connections and how to enable them. |
-| [Custom MCPs](./custom-mcps.md) | Connecting your own MCP servers for internal tools and APIs. |
-| [Custom Agents](./custom-agents.md) | Designing agent instructions and tool access. |
-| **Build Your Own MCP** | A hands-on developer track: [concepts](./mcp-concepts.md), [building](./building-an-mcp-server.md), [testing](./testing-your-mcp.md), [deploying](./deploying-mcps.md), and [registering](./registering-with-catalex.md) an MCP server. |
+See the [Tools](../features/tools.md) page for the full walkthrough: browsing the catalog, one-click OAuth, custom OAuth apps, API-key setup, managing multiple accounts, and setting per-action **guardrails**.
 
-## Who can manage these?
+For the full list of supported services, see [Official Integrations](./official-integrations.md).
 
-Connecting integrations, adding custom MCPs, and managing company-wide tools requires the **ADMIN** or **OWNER** role. Any team member can build and run agents in Studio using the tools that have been connected.
+## Who can manage integrations?
 
-## FAQ
-
-### Do I need to be technical?
-
-No for most of it. Connecting **official integrations** and **building agents** in Studio are point-and-click. Only **custom MCPs** require engineering — your team builds and hosts an MCP-compatible server.
-
-### Can multiple agents use the same tool?
-
-Yes. A connected tool can be used by as many agents as you like, and each agent can be scoped to specific connected accounts.
-
-### What's the difference between a tool and an agent?
-
-A **tool** is the connection that provides access to an external service's capabilities. An **agent** is the AI that decides how and when to use those tools.
+Connecting and configuring integrations requires the **ADMIN** or **OWNER** role. Any team member can build and run agents in Studio using the tools that have been connected.

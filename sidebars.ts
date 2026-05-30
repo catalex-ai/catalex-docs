@@ -28,25 +28,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Building Custom Tools & Agents',
+      label: 'Integrations',
       collapsed: true,
       items: [
         'agents-and-integrations/overview',
         'agents-and-integrations/official-integrations',
-        'agents-and-integrations/custom-mcps',
-        'agents-and-integrations/custom-agents',
-        {
-          type: 'category',
-          label: 'Build Your Own MCP',
-          items: [
-            'agents-and-integrations/mcp-concepts',
-            'agents-and-integrations/building-an-mcp-server',
-            'agents-and-integrations/testing-your-mcp',
-            'agents-and-integrations/deploying-mcps',
-            'agents-and-integrations/creating-custom-agents',
-            'agents-and-integrations/registering-with-catalex',
-          ],
-        },
       ],
     },
     {
