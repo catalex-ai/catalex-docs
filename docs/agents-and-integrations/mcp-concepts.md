@@ -167,7 +167,7 @@ Build a custom MCP server when you need to connect CatalEx to:
 - **Services not covered by official integrations** — niche SaaS products, legacy systems, on-prem services
 
 :::info
-Before building a custom MCP, check the [Agent Market](/agents-and-integrations/overview) for an existing integration. CatalEx ships with MCPs for common services like Jira, GitHub, Slack, and others.
+Before building a custom MCP, check the [Tools page](/features/tools) for an existing integration. CatalEx ships with MCPs for common services like Jira, GitHub, Slack, and others.
 :::
 
 ## Frequently Asked Questions

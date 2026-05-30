@@ -132,7 +132,7 @@ if __name__ == "__main__":
 
 ## Step 3: Create the Manifest File
 
-The `manifest.json` file provides UI metadata so CatalEx can display your MCP with a name, description, and icon in the Agent Market.
+The `manifest.json` file provides UI metadata so CatalEx can display your MCP with a name, description, and icon on the Tools page.
 
 ```json title="manifest.json"
 {
@@ -149,7 +149,7 @@ The `manifest.json` file provides UI metadata so CatalEx can display your MCP wi
 | `name` | Machine-readable identifier (snake_case, unique) |
 | `display_name` | Human-readable name shown in the CatalEx UI |
 | `description` | Short description shown below the name |
-| `icon` | Icon identifier (CatalEx uses a standard icon set — see the Agent Market for available icons) |
+| `icon` | Icon identifier (CatalEx uses a standard icon set — see the Tools page for available icons) |
 | `color` | Hex color code for the icon background |
 
 ## Step 4: Run Locally

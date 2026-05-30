@@ -21,7 +21,7 @@ These settings are available to users with the **OWNER** or **ADMIN** role.
 
 ### Step 1: Set Your Company Name
 
-1. Navigate to **Settings > Company**.
+1. Navigate to **Admin → Company Settings**.
 2. Enter your company name in the **Company Name** field.
 3. Click **Save**.
 
@@ -31,7 +31,7 @@ This name appears in the navigation bar, invite emails, and anywhere your compan
 
 Adding domains tells CatalEx which email domains belong to your organization. This is a prerequisite for both DNS verification and auto-join.
 
-1. Go to **Settings > Company > Domains**.
+1. Go to **Admin → Company Settings**.
 2. Click **Add Domain**.
 3. Enter the domain (e.g., `yourcompany.com`).
 4. Click **Add**.
@@ -63,7 +63,7 @@ Do not remove the TXT record after verification. CatalEx may periodically re-che
 
 Once a domain is verified, you can enable auto-join so that any new user who signs up with a matching email domain is automatically added to your company.
 
-1. Go to **Settings > Company > Domains**.
+1. Go to **Admin → Company Settings**.
 2. Next to your verified domain, toggle **Auto-Join** to **Enabled**.
 3. Click **Save**.
 
@@ -84,31 +84,31 @@ Auto-join is ideal for organizations that want frictionless onboarding. Combined
 | Need to assign specific roles (ADMIN) on join | Send individual invites with role selection |
 
 :::info
-Auto-join always assigns the **MEMBER** role. If you need someone to have the **ADMIN** role, either send them an invite with the ADMIN role selected, or change their role after they join via **Settings > Team**.
+Auto-join always assigns the **MEMBER** role. If you need someone to have the **ADMIN** role, either send them an invite with the ADMIN role selected, or change their role after they join via **Admin → Team**.
 :::
 
 ## Configuration
 
 | Setting | Location | Who Can Change |
 |---|---|---|
-| Company Name | Settings > Company | OWNER, ADMIN |
-| Add / Remove Domains | Settings > Company > Domains | OWNER, ADMIN |
-| DNS Verification | Settings > Company > Domains | OWNER, ADMIN |
-| Auto-Join Toggle | Settings > Company > Domains | OWNER, ADMIN |
+| Company Name | Admin → Company Settings | OWNER, ADMIN |
+| Add / Remove Domains | Admin → Company Settings | OWNER, ADMIN |
+| DNS Verification | Admin → Company Settings | OWNER, ADMIN |
+| Auto-Join Toggle | Admin → Company Settings | OWNER, ADMIN |
 
 ## FAQ
 
 **Can I change the company name later?**
-Yes. Navigate to **Settings > Company** and update the name at any time. The change takes effect immediately for all members.
+Yes. Navigate to **Admin → Company Settings** and update the name at any time. The change takes effect immediately for all members.
 
 **What if DNS verification keeps failing?**
 Double-check that the TXT record value matches exactly what CatalEx provided, including any prefixes. Ensure you added the record to the correct domain and that enough time has passed for DNS propagation. Use a tool like [MXToolbox TXT Lookup](https://mxtoolbox.com/TXTLookup.aspx) to confirm the record is visible.
 
 **Can I remove a domain after adding it?**
-Yes. Go to **Settings > Company > Domains** and click **Remove** next to the domain. Removing a domain disables auto-join for that domain and new users with that email domain will no longer be added automatically. Existing members are not affected.
+Yes. Go to **Admin → Company Settings** and click **Remove** next to the domain. Removing a domain disables auto-join for that domain and new users with that email domain will no longer be added automatically. Existing members are not affected.
 
 **Who is the OWNER and can it change?**
-The person who creates the company is the OWNER. There is exactly one OWNER per company. Ownership can be transferred to another member from **Settings > Company > Ownership Transfer**.
+The person who creates the company is the OWNER. There is exactly one OWNER per company. Ownership can be transferred to another member from **Admin → Team (use the Make owner action)**.
 
 **Does auto-join work retroactively?**
 No. Auto-join only applies to users who sign up after it is enabled. Existing CatalEx users with matching email domains will need an invite to join.

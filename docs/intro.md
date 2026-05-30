@@ -6,17 +6,17 @@ title: Welcome to CatalEx
 
 # Welcome to CatalEx Documentation
 
-CatalEx is an AI-powered workplace intelligence platform that connects your team's knowledge, tools, and workflows into a single intelligent system. It helps you find answers, extract action items, automate workflows, and extend capabilities through custom agents and integrations.
+CatalEx is an AI-powered workplace platform. You build **agents** that do real work, connect them to the tools and knowledge your team already uses, and let them run — on demand or on a schedule — with you in control of anything sensitive.
 
 ## What can CatalEx do?
 
 | Capability | Description |
 |-----------|-------------|
-| **Intelligence** | Ask questions and get precise, context-aware answers from your company's documents and conversations |
-| **Knowledge Sync** | Automatically index documents from Google Drive and Slack into a searchable knowledge graph |
-| **Task Extraction** | AI identifies action items from your documents, assigns them, and tracks completion |
-| **Automation** | Create scheduled workflows that run hourly, daily, or weekly — even from natural language |
-| **Agent Market** | Connect official integrations (Jira, GitHub, Slack) or build your own custom MCP servers and agents |
+| **Studio** | Build AI agents in plain English, give them tools and goals, and run them on demand or on a schedule. Agents measure their own impact and improve over time. |
+| **Freeflow** | Ask questions in natural language and get answers from your company's knowledge and the web. |
+| **Knowledge** | Connect Google Docs, Slack, and Confluence so CatalEx can search your company's documents and conversations. |
+| **Tools** | Connect 100+ integrations (Slack, GitHub, Jira, Gmail, and more) and control exactly which actions agents can take. |
+| **Tasks** | An agent-driven inbox that surfaces what needs your attention — already drafted, ready for your approval. *(Beta)* |
 
 ## Quick Navigation
 
@@ -35,29 +35,31 @@ New to CatalEx? Start here.
 
 <div className="home-card">
 
-### Features
-Learn how to use each feature.
-- [Intelligence (Chat)](/features/intelligence)
-- [Knowledge Sync](/features/knowledge)
+### Core Features
+Learn how to use each part of the platform.
+- [Studio (build agents)](/features/studio)
+- [Freeflow (chat)](/features/freeflow)
+- [Knowledge](/features/knowledge)
+- [Tools](/features/tools)
 - [Tasks](/features/tasks)
-- [Automation](/features/automation)
 
 </div>
 
 <div className="home-card">
 
-### Agents & Integrations
-Extend CatalEx with custom tools.
-- [Agent Market overview](/agents-and-integrations/overview)
+### Building Custom Tools & Agents
+Extend CatalEx with your own.
+- [Overview](/agents-and-integrations/overview)
 - [Build an MCP server](/agents-and-integrations/building-an-mcp-server)
-- [Create custom agents](/agents-and-integrations/creating-custom-agents)
+- [Custom agents](/agents-and-integrations/custom-agents)
 
 </div>
 
 <div className="home-card">
 
-### Administration
-Manage your organization.
+### Account & Administration
+Manage your account and organization.
+- [Personal preferences](/administration/preferences)
 - [User management](/administration/user-management)
 - [Roles & permissions](/administration/roles-and-permissions)
 - [Company settings](/administration/company-settings)

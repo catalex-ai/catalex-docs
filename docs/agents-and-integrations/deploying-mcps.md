@@ -189,7 +189,7 @@ To rotate a token without downtime:
 
 1. Generate a new token.
 2. Add the new token to your server's `MCP_PROXY_TOKENS` (comma-separated — see below).
-3. Update the token in CatalEx (**Agent Market > Custom MCPs > your MCP > Edit**).
+3. Update the token in CatalEx (the **Tools** page → your MCP → Edit).
 4. Remove the old token from `MCP_PROXY_TOKENS`.
 5. Redeploy the server.
 

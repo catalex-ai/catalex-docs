@@ -1,155 +1,76 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: Knowledge
 ---
 
 # Knowledge
 
-Knowledge is the central hub for managing your company's document index and knowledge graph. From this page you can view all ingested documents, trigger syncs, monitor sync history, and inspect the state of your knowledge graph.
+The **Knowledge Base** is where you connect your company's data sources and manage what CatalEx has indexed. Once a source is connected and synced, its content becomes searchable in [Freeflow](./freeflow.md) and usable by your [Studio](./studio.md) agents.
 
-## Document Listing
+## Connecting a source
 
-The Knowledge page displays a table of all ingested documents with the following metadata:
+The Knowledge page lists your **Connected Sources** as cards. CatalEx supports three connectors:
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Document title as it appears in the source system |
-| **Chunks** | Number of text chunks the document was split into for indexing |
-| **Last Synced** | Timestamp of the most recent sync that processed this document |
-| **Source Type** | Where the document originated (Google Drive, Slack, etc.) |
-| **Owner** | The document owner or author |
-| **Tokens Used** | Total token count consumed by this document's chunks |
+| Source | What gets indexed |
+|---|---|
+| **Google Docs** | Documents from Google Drive |
+| **Slack** | Messages and threads from selected channels |
+| **Confluence** | Pages across your accessible spaces |
 
-Use this listing to audit what is in your knowledge base and identify documents that may need re-syncing.
-
-## Sync Types
-
-CatalEx supports three sync modes depending on your needs:
-
-| Sync Type | Description | When to Use |
-|-----------|-------------|-------------|
-| **Single Document** | Sync a specific Google Doc by providing its URL | When you have updated one important document and want it re-indexed immediately |
-| **Update Since** | Sync all documents modified after a given timestamp | Regular incremental updates -- keeps the index fresh without re-processing everything |
-| **Full Sync** | Re-sync the entire knowledge base from scratch | Initial setup, after a major reorganization, or to resolve inconsistencies |
-
-:::tip
-For day-to-day use, **Update Since** is the most efficient option. Reserve **Full Sync** for initial onboarding or when you suspect the index has drifted from the source documents.
-:::
-
-## How a Sync Works
-
-When a sync runs, CatalEx processes each document through the following pipeline:
-
-1. **Fetching** -- The document content is retrieved from the source system (Google Drive or Slack).
-2. **Chunking** -- The document is split into smaller text chunks optimized for retrieval.
-3. **Embedding** -- Each chunk is converted into a vector embedding for similarity search.
-4. **Graph generation** -- Entities and relationships are extracted and added to the knowledge graph as nodes and edges.
-5. **Vector indexing** -- Embeddings are stored in the vector database for fast retrieval.
-
-## Sync History
-
-Every sync operation is logged with detailed statistics. The sync history view shows:
-
-- **Documents touched** -- How many documents were processed in the sync
-- **Knowledge graph nodes added** -- New entities discovered and added to the graph
-- **Knowledge graph edges added** -- New relationships between entities
-- **Per-document status** -- Individual success or failure status for each document in the sync batch
-
-Use sync history to verify that syncs completed successfully and to diagnose issues with specific documents.
-
-## Auto-Sync
-
-Toggle auto-sync to enable automatic, scheduled syncing. When enabled, CatalEx periodically checks your connected sources for document changes and runs an incremental sync.
+Each card shows the source's icon, how much is indexed, and a sync-status dot (green = synced recently, yellow = a few hours ago, red = stale, gray = never). Use the toggle to connect or disconnect, and the **⋮** menu for sync actions.
 
 :::info
-Auto-sync runs incremental updates (equivalent to **Update Since**). It does not perform a full re-sync on each run.
+Connecting, disconnecting, and managing syncs requires the **ADMIN** or **OWNER** role. Members see sources in read-only form.
 :::
 
-To enable auto-sync:
+### Google Docs
 
-1. Navigate to the **Knowledge** page.
-2. Locate the **Auto-Sync** toggle.
-3. Switch it on.
+Toggle the card on and choose **Proceed** to authorize with Google. After connecting, CatalEx asks whether to **enable periodic sync** — this runs a one-time full sync and then keeps your docs up to date automatically (checking roughly every 15 minutes).
 
-CatalEx will begin checking for changes on its configured schedule. Disable the toggle at any time to pause automatic syncing.
+From the **⋮** menu you can:
 
-## Knowledge Graph Stats
+- **Sync now** — sync a single Google Doc by URL, run an **incremental sync** (only changed docs), or **re-sync all data**.
+- **Enable / Disable Sync** — turn automatic updates on or off.
+- **Sync History** — review past syncs, with per-run detail and any failures.
 
-The Knowledge page displays aggregate analytics about your knowledge graph:
+> Larger Google Workspace organizations may connect through a service account (Domain-Wide Delegation) instead. In that case an admin pastes service-account credentials in the **Setup Credentials** dialog, which includes step-by-step setup instructions.
 
-- **Total nodes** -- The number of distinct entities (people, projects, concepts, documents) in the graph
-- **Total edges** -- The number of relationships connecting those entities
-- **Total vectors** -- The number of vector embeddings stored for similarity search
+### Slack
 
-These stats give you a quick health check on the size and completeness of your indexed knowledge base.
+Toggle the card on and authorize CatalEx in the Slack popup. From the **⋮** menu:
 
-## Connecting Google Drive
+- **Manage Channels** — choose exactly which channels feed the knowledge base. Each public channel (**#**), private channel (🔒), and direct message (💬) has an include/exclude toggle.
+- **Sync now** — run a manual backfill and watch live progress.
+- **Enable / Disable Sync** — when enabled, new messages are indexed in real time and a full sync runs every 15 minutes.
 
-CatalEx supports two authentication methods for Google Drive:
+### Confluence
 
-### OAuth (Individual)
+Toggle the card on and authorize through the Confluence popup. Company accounts may instead enter Atlassian OAuth credentials (a **Site URL**, **Client ID**, and **Client Secret**) and **Test** them before saving. After connecting, you can **enable periodic sync**. Confluence indexes **all accessible spaces and pages** automatically — there's no per-space picker. From the **⋮** menu you can **Sync now**, **View pages**, or toggle auto-sync.
 
-With OAuth, CatalEx connects using an individual user's Google account. Only documents accessible to that user are synced.
+## Browsing indexed content
 
-**Best for:** Small teams or individual use where you only need to index your own documents.
+Click a card's count (e.g. *"128 documents indexed"*) to open a searchable list of what's indexed for that source. From the list you can open any document, thread, or page in the **document viewer**, which shows the content broken into the chunks CatalEx searches over.
 
-### Domain-Wide Delegation (Organization)
+When you click a citation elsewhere in CatalEx, the viewer opens to the exact passage and highlights it.
 
-With Domain-Wide Delegation, CatalEx is granted access to documents across your entire Google Workspace domain. This allows indexing of company-wide documents regardless of individual ownership.
+## Sync status
 
-**Best for:** Organizations that want comprehensive coverage of all company documents.
-
-:::warning
-Domain-Wide Delegation requires a Google Workspace administrator to configure the delegation in the Google Admin Console. See your IT team for setup assistance.
-:::
-
-## Connecting Slack
-
-Once Slack is connected, CatalEx automatically indexes threads from your connected channels. Slack messages and threads become searchable through Intelligence just like any other document.
-
-To connect Slack:
-
-1. Navigate to the **Knowledge** page or **Integrations** settings.
-2. Click **Connect Slack**.
-3. Authorize CatalEx in the Slack OAuth flow.
-4. Select which channels to index.
-
-## Disconnecting Sources
-
-You can cleanly remove Google Drive or Slack credentials at any time:
-
-1. Navigate to the integration settings for the source you want to disconnect.
-2. Click **Disconnect**.
-3. Confirm the disconnection.
-
-When you disconnect a source, CatalEx starts a background cleanup job that removes all indexed data originating from that source. This includes document chunks, vector embeddings, and knowledge graph nodes/edges associated with the disconnected source.
+While a sync runs, a banner and a progress view show how many items have been processed, how many succeeded, and any failures. Each source keeps a history you can revisit to confirm everything indexed correctly.
 
 :::warning
-Disconnecting a source permanently removes all indexed data from that source. You will need to re-sync if you reconnect later.
+Disconnecting a source **deletes all of its synced data** from CatalEx. You can reconnect later, but the content will need to be re-indexed.
 :::
 
 ## FAQ
 
-**How long does a full sync take?**
+**How often does CatalEx re-index my data?**
+With auto-sync enabled, roughly every 15 minutes. Slack also indexes new messages in real time. You can always trigger a manual **Sync now**.
 
-It depends on the number and size of your documents. For most organizations, a full sync completes in minutes. Very large document sets (thousands of documents) may take longer.
+**Can I control which Slack channels are indexed?**
+Yes — use **Manage Channels** to include or exclude any channel, including private channels and DMs.
 
-**What file types are supported?**
+**Why is a recently edited document not showing up in answers?**
+It may not have synced yet. Run an **incremental sync** (Google) or **Sync now** (Slack/Confluence), then try again.
 
-CatalEx currently supports Google Docs and text-based files. PDFs, spreadsheets, and binary files are not indexed at this time.
-
-**Can I exclude certain documents from syncing?**
-
-There is no global exclusion filter. However, you can use **Single Document** sync to selectively sync only the documents you want indexed. Documents that are never synced are never indexed.
-
-**What happens if a sync fails for one document?**
-
-The sync continues processing the remaining documents. The failed document is logged in the sync history with an error status. You can retry it individually using **Single Document** sync.
-
-**Can I delete a specific document from the index?**
-
-Disconnecting the entire source removes all its data. For selective removal, re-syncing without including the document will not add new data, but previously indexed content remains until a full re-sync or source disconnection.
-
-**What happens during a sync?**
-
-Each document goes through: chunking, embedding, graph generation, and vector indexing. See the [How a Sync Works](#how-a-sync-works) section above for the full pipeline.
+**Who can connect data sources?**
+Only ADMIN and OWNER users. This keeps company data sources under administrative control.

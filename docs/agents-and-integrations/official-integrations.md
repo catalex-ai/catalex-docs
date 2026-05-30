@@ -25,7 +25,7 @@ CatalEx handles updates, bug fixes, and compatibility changes for all official i
 | **Linear**   | Issue tracking         | Create and update issues, manage projects, track cycles             |
 
 :::tip
-More official integrations are added regularly. Check the Agent Market for the latest list.
+More official integrations are added regularly. Check the Tools page for the latest list.
 :::
 
 ## Key Concepts
@@ -52,7 +52,7 @@ Each integration requires different configuration details depending on the exter
 
 ## How to Enable an Official Integration
 
-1. Navigate to **Agent Market** and select the **Official Integrations** tab.
+1. Open the **Tools** page.
 2. Browse the list to find the integration you want to enable.
 3. Click **Add** (or **Enable**) on the integration card.
 4. Fill in the required configuration fields (API key, workspace URL, etc.).
@@ -67,7 +67,7 @@ Once enabled, the integration appears in your list of active connections and can
 
 ## Configuration
 
-Configuration is handled entirely through the Agent Market UI. After enabling an integration, you can return to its settings at any time to:
+Configuration is handled entirely through the Tools page. After enabling an integration, you can return to its settings at any time to:
 
 - Update API tokens or credentials
 - Change workspace identifiers

@@ -5,7 +5,11 @@ title: Custom Agents
 
 # Custom Agents
 
-Custom agents are AI personas with specific expertise, defined by system instructions and linked MCP tools. They let you create specialized assistants tailored to your team's workflows --- a DevOps helper, a support triage bot, an onboarding guide, or anything else your organization needs.
+:::tip
+The primary way to build agents is now **[Studio](../features/studio.md)** — describe what you want in plain English and CatalEx assembles the agent's instructions, tools, and goals for you. This page covers the underlying concepts (instructions and linked tools) that shape every agent.
+:::
+
+Custom agents are AI personas with specific expertise, defined by instructions and the tools they can use. They let you create specialized assistants tailored to your team's workflows --- a DevOps helper, a support triage bot, an onboarding guide, or anything else your organization needs.
 
 ## How It Works
 
@@ -57,7 +61,7 @@ Auto-execute has a strict safety constraint: it can only be enabled if **all** l
 
 ## Creating a Custom Agent
 
-1. Navigate to **Agent Market** and select the **Agents** tab.
+1. Open **Studio**.
 2. Click **Create Agent**.
 3. Enter a **name** for the agent (the slug is generated automatically).
 4. Add a **description** that explains what the agent does. This is shown to users when they select an agent in chat.
@@ -134,7 +138,7 @@ Changes to MCP links take effect immediately. If you add a new MCP to an active 
 
 ## Configuration
 
-All agent configuration is managed through the Agent Market UI. The key settings are:
+All agent configuration is managed through Studio. The key settings are:
 
 | Setting              | Description                                                      | Required |
 | -------------------- | ---------------------------------------------------------------- | -------- |
@@ -174,4 +178,4 @@ If a linked MCP is disabled (but not deleted), the agent will not be able to use
 
 ### Can non-admin users create agents?
 
-No. Only users with the **ADMIN** or **OWNER** role can create, edit, or manage agents in the Agent Market. All team members can use active agents in chat.
+Yes. Any team member can build and run their own agents in [Studio](../features/studio.md). Administrative control (the **ADMIN** or **OWNER** role) is required only for connecting integrations and adding custom MCPs on the [Tools](../features/tools.md) page.

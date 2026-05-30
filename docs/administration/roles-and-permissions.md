@@ -15,7 +15,7 @@ CatalEx uses a simple, fixed role model with three roles: **OWNER**, **ADMIN**, 
 
 Every user in a CatalEx company is assigned exactly one role. Roles are hierarchical in terms of capability:
 
-- **MEMBER** — The default role for most users. Full access to CatalEx features (chat, tasks, automations, document search) but no administrative capabilities.
+- **MEMBER** — The default role for most users. Full access to CatalEx features (Studio agents, Freeflow chat, Tasks, knowledge search) but no administrative capabilities.
 - **ADMIN** — Everything a Member can do, plus the ability to manage users, configure integrations, and administer the system.
 - **OWNER** — Everything an Admin can do, plus the exclusive ability to transfer company ownership. There is exactly one Owner per company.
 
@@ -35,27 +35,25 @@ ADMINs manage the day-to-day administration of the platform. They can invite and
 
 ### MEMBER
 
-MEMBERs are standard users of the platform. They have full access to all CatalEx productivity features — Intelligence (chat), document search, tasks, automations, and execution health monitoring — but cannot perform any administrative actions.
+MEMBERs are standard users of the platform. They have full access to all CatalEx productivity features — building and running agents in [Studio](../features/studio.md), [Freeflow](../features/freeflow.md) chat, [Knowledge](../features/knowledge.md) search, [Tasks](../features/tasks.md), and using connected [Tools](../features/tools.md) — but cannot perform administrative actions such as connecting data sources or managing the team.
 
 ## Permission Matrix
 
-The table below shows every action in CatalEx and which roles can perform it.
+The table below shows representative actions in CatalEx and which roles can perform them.
 
 | Action | Member | Admin | Owner |
 |---|:---:|:---:|:---:|
-| Use Intelligence (chat) | Yes | Yes | Yes |
-| Search documents | Yes | Yes | Yes |
+| Use Freeflow (chat) | Yes | Yes | Yes |
+| Search the knowledge base | Yes | Yes | Yes |
+| Build and run agents (Studio) | Yes | Yes | Yes |
 | View and create tasks | Yes | Yes | Yes |
-| Create and manage automations | Yes | Yes | Yes |
-| View execution health | Yes | Yes | Yes |
+| Use connected tools in agents | Yes | Yes | Yes |
 | Update own preferences | Yes | Yes | Yes |
 | Invite users | No | Yes | Yes |
-| Disable/enable users | No | Yes | Yes |
-| Delete users | No | Yes | Yes |
-| Configure data sources | No | Yes | Yes |
-| Trigger full sync | No | Yes | Yes |
-| Manage MCPs | No | Yes | Yes |
-| Create/edit agents | No | Yes | Yes |
+| Disable / enable / delete users | No | Yes | Yes |
+| Connect & sync data sources (Knowledge) | No | Yes | Yes |
+| Connect integrations (Tools) | No | Yes | Yes |
+| Add custom MCPs | No | Yes | Yes |
 | Edit company settings | No | Yes | Yes |
 | Transfer ownership | No | No | Yes |
 

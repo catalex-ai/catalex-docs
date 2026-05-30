@@ -95,8 +95,8 @@ const config: Config = {
           title: 'Documentation',
           items: [
             {label: 'Getting Started', to: '/getting-started/sign-up-and-onboarding'},
-            {label: 'Features', to: '/features/intelligence'},
-            {label: 'Agents & Integrations', to: '/agents-and-integrations/overview'},
+            {label: 'Core Features', to: '/features/studio'},
+            {label: 'Building Custom Tools & Agents', to: '/agents-and-integrations/overview'},
           ],
         },
         {

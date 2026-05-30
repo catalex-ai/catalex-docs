@@ -61,7 +61,7 @@ If **any** of these methods succeeds, the connection is considered valid.
 
 ## Adding a Custom MCP
 
-1. Navigate to **Agent Market** and select the **Custom MCPs** tab.
+1. Open the **Tools** page (admins only).
 2. Click **Add MCP**.
 3. Enter a **name** for the connection (e.g., "Internal Ticketing System").
 4. Enter the **MCP server URL** (must be HTTPS in production).
@@ -75,7 +75,7 @@ Give your MCP a descriptive name that makes it easy to identify when linking it 
 
 ## Managing Custom MCPs
 
-Once a custom MCP is added, you can manage it from the Custom MCPs tab in the Agent Market.
+Once a custom MCP is added, you can manage it from the Tools page.
 
 ### Enable / Disable
 
@@ -95,7 +95,7 @@ If an agent is linked to a deleted MCP, the agent will continue to function but 
 
 ## Configuration
 
-All custom MCP configuration is managed through the Agent Market UI. The key settings are:
+All custom MCP configuration is managed through Studio. The key settings are:
 
 | Setting           | Description                                                    | Required |
 | ----------------- | -------------------------------------------------------------- | -------- |
@@ -111,7 +111,7 @@ All custom MCP configuration is managed through the Agent Market UI. The key set
 
 ### Can I add an MCP from another company?
 
-Yes. If a third party provides you with an MCP server URL and authentication token, you can add it as a custom MCP in your Agent Market. The MCP standard is vendor-agnostic.
+Yes. If a third party provides you with an MCP server URL and authentication token, you can add it as a custom MCP on your Tools page. The MCP standard is vendor-agnostic.
 
 ### What if the connection test fails?
 

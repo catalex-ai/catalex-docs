@@ -15,7 +15,7 @@ This guide walks you through the end-to-end process of registering a custom MCP 
 
 ### Step 1: Open the Custom MCPs Panel
 
-Navigate to **Agent Market** in the CatalEx sidebar, then click the **Custom MCPs** tab.
+Open the **Tools** page from the CatalEx sidebar (admins only).
 
 ### Step 2: Add a New MCP
 
@@ -68,7 +68,7 @@ If you want agents to invoke this MCP's tools without asking the user for confir
 
 ### Step 1: Open the Agents Panel
 
-Navigate to **Agent Market** in the CatalEx sidebar, then click the **Agents** tab.
+Open **Studio** from the CatalEx sidebar.
 
 ### Step 2: Create a New Agent
 
@@ -152,7 +152,7 @@ Verify that:
 
 ### Step 8: Activate
 
-Once testing is complete, return to **Agent Market > Agents**, find your agent, and change its status from **Draft** to **Active**. The agent is now available to all users in your company.
+Once testing is complete, return to **Studio**, find your agent, and change its status from **Draft** to **Active**. The agent is now available to all users in your company.
 
 ## Part 3: What Your Team Sees
 
@@ -194,7 +194,7 @@ This transparency lets users understand what the agent is doing and verify the i
 
 If you rotate your MCP server's auth token:
 
-1. Go to **Agent Market > Custom MCPs**.
+1. Go to the **Tools** page.
 2. Find your MCP in the list.
 3. Click **Edit** (or the pencil icon).
 4. Update the **Token** field with the new token.
@@ -209,7 +209,7 @@ To avoid downtime during token rotation, temporarily configure your server with 
 
 To delete a registered MCP:
 
-1. Go to **Agent Market > Custom MCPs**.
+1. Go to the **Tools** page.
 2. Find your MCP and click **Delete** (or the trash icon).
 3. Confirm the deletion.
 
@@ -242,7 +242,7 @@ No. All changes — adding MCPs, creating agents, updating tokens, activating ag
 
 ### Can non-admin users register MCPs or create agents?
 
-No. Only users with admin permissions can access the Agent Market management interface (Custom MCPs and agent creation). All users can **use** agents in the Intelligence interface.
+No. Only users with admin permissions can access the Tools page and custom MCP management. All users can **use** agents in the Intelligence interface.
 
 ### How many custom MCPs can I register?
 

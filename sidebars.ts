@@ -16,19 +16,20 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Features',
+      label: 'Core Features',
       collapsed: false,
       items: [
-        'features/intelligence',
+        'features/studio',
+        'features/freeflow',
         'features/knowledge',
+        'features/tools',
         'features/tasks',
-        'features/automation',
       ],
     },
     {
       type: 'category',
-      label: 'Agents & Integrations',
-      collapsed: false,
+      label: 'Building Custom Tools & Agents',
+      collapsed: true,
       items: [
         'agents-and-integrations/overview',
         'agents-and-integrations/official-integrations',
@@ -36,7 +37,7 @@ const sidebars: SidebarsConfig = {
         'agents-and-integrations/custom-agents',
         {
           type: 'category',
-          label: 'Building Your Own',
+          label: 'Build Your Own MCP',
           items: [
             'agents-and-integrations/mcp-concepts',
             'agents-and-integrations/building-an-mcp-server',
@@ -50,9 +51,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Administration',
+      label: 'Account & Administration',
       collapsed: true,
       items: [
+        'administration/preferences',
         'administration/user-management',
         'administration/roles-and-permissions',
         'administration/company-settings',

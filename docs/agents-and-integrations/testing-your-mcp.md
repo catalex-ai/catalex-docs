@@ -154,7 +154,7 @@ curl -X POST http://localhost:8001/v1/mcps/invoke \
 
 Once your server is deployed and accessible over HTTPS, use CatalEx's built-in connection tester:
 
-1. Navigate to **Agent Market** in the CatalEx sidebar.
+1. Open the **Tools** page from the CatalEx sidebar.
 2. Click the **Custom MCPs** tab.
 3. Click **"Add MCP"**.
 4. Enter your MCP server URL (e.g., `https://my-mcp.company.com`).
