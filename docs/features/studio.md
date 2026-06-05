@@ -93,6 +93,26 @@ The history of the agent's automated runs (as opposed to chats). Each row shows 
 
 Measures the agent against its **KPIs**. After each interaction, CatalEx scores the agent (0–100) on each KPI and records what worked and what needs improvement. The tab shows current scores, trends, and sparklines over your chosen time window, and lets you add or remove KPIs. Pausing measurement here also pauses evolution.
 
+#### How are KPIs measured?
+
+KPI measurement is **self-contained**: after a run finishes, an automated evaluator reviews *that run and nothing else* — the request, the agent's responses, every tool call with its result (success or error), and execution stats such as duration, turns, and tokens. It then scores each approved KPI from 0 to 100 with a short reasoning, plus what worked well and what needs improvement.
+
+Think of it as a teaching assistant grading a student's submitted work: the evaluator can judge the quality of the submission itself, but it can't follow the student home to see whether the advice paid off. It has **no access to your external systems, analytics, or anything that happens after the run ends**.
+
+That means a KPI is only as good as what the conversation can show:
+
+| Measurable (visible in the run) | Not measurable (outside the run) |
+|---|---|
+| Completeness — did the response cover everything the request asked for? | Business outcomes — revenue, conversions, CSAT, retention |
+| Grounding — are claims and figures backed by data the agent actually fetched? | Events in external systems after the run (e.g. whether a fix held in production) |
+| Follow-through — does every claimed action have a successful tool call behind it? | Rates aggregated over events the run never saw (e.g. "% of tickets deflected") |
+| Structure and actionability of the deliverable | Wall-clock business timelines measured in days or weeks |
+| Efficiency — focused execution without wasted turns or tool errors | Whether people adopted the agent's recommendations |
+
+:::tip Writing good KPIs
+Phrase KPIs about the **work product the agent delivers in the conversation** — "every flagged discrepancy names the account, amount, and suspected cause" — rather than downstream outcomes like "reconciliation error rate below 2%". Each run gets its own score, so trends across runs build up automatically on this tab.
+:::
+
 ### Evolution
 
 This is where the agent **improves itself**. Based on its KPI observations, the agent proposes changes to its instructions, memory, and tools. You review each proposal — **Approve**, **Edit**, **Compare** (a side-by-side diff), or **Reject** — then **commit** the approved changes as a new version. Every version is kept, so you can compare versions or **roll back** at any time. Evolution requires impact measurement to be turned on.
